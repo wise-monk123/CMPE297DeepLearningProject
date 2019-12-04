@@ -267,3 +267,182 @@ def trainModel(model):
     # Save model as well
     # model.save("newModel.hdf5")
 
+def Main():
+    global guessGesture, visualize, mod, binaryMode, bkgrndSubMode, mask, takebkgrndSubMask, x0, y0, width, height, saveImg, gestname, path
+    quietMode = False
+    
+    font = cv2.FONT_HERSHEY_SIMPLEX
+    size = 0.5
+    fx = 10
+    fy = 350
+    fh = 18
+
+        
+    #Call CNN model loading callback
+    while True:
+        ans = int(input( banner))
+        if ans == 1:
+            mod = myNN.loadCNN()
+            break
+        elif ans == 2:
+            mod = myNN.loadCNN(True)
+            myNN.trainModel(mod)
+            input("Press any key to continue")
+            break
+        elif ans == 3:
+            if not mod:
+                mod = myNN.loadCNN()
+            else:
+                print("Will load default weight file")
+            
+            myNN.visualizeLayers(mod)
+            input("Press any key to continue")
+            continue
+        
+        else:
+            print("Get out of here!!!")
+            return 0
+        
+    ## Grab camera input
+    cap = cv2.VideoCapture(0)
+    cv2.namedWindow('Original', cv2.WINDOW_NORMAL)
+
+    # set rt size as 640x480
+    ret = cap.set(3,640)
+    ret = cap.set(4,480)
+
+    framecount = 0
+    fps = ""
+    start = time.time()
+
+    plot = np.zeros((512,512,3), np.uint8)
+    
+    while(True):
+        ret, frame = cap.read()
+        max_area = 0
+        
+        frame = cv2.flip(frame, 3)
+        frame = cv2.resize(frame, (640,480))
+                      
+        if ret == True:
+            if bkgrndSubMode == True:
+                roi = bkgrndSubMask(frame, x0, y0, width, height, framecount, plot)
+            elif binaryMode == True:
+                roi = binaryMask(frame, x0, y0, width, height, framecount, plot)
+            else:
+                roi = skinMask(frame, x0, y0, width, height, framecount, plot)
+
+            
+            framecount = framecount + 1
+            end  = time.time()
+            timediff = (end - start)
+            if( timediff >= 1):
+                #timediff = end - start
+                fps = 'FPS:%s' %(framecount)
+                start = time.time()
+                framecount = 0
+
+        cv2.putText(frame,fps,(10,20), font, 0.7,(0,255,0),2,1)
+        cv2.putText(frame,'Options:',(fx,fy), font, 0.7,(0,255,0),2,1)
+        cv2.putText(frame,'b - Toggle Binary/SkinMask',(fx,fy + fh), font, size,(0,255,0),1,1)
+        cv2.putText(frame,'x - Toggle Background Sub Mask',(fx,fy + 2*fh), font, size,(0,255,0),1,1)		
+        cv2.putText(frame,'g - Toggle Prediction Mode',(fx,fy + 3*fh), font, size,(0,255,0),1,1)
+        cv2.putText(frame,'q - Toggle Quiet Mode',(fx,fy + 4*fh), font, size,(0,255,0),1,1)
+        cv2.putText(frame,'n - To enter name of new gesture folder',(fx,fy + 5*fh), font, size,(0,255,0),1,1)
+        cv2.putText(frame,'s - To start capturing new gestures for training',(fx,fy + 6*fh), font, size,(0,255,0),1,1)
+        cv2.putText(frame,'ESC - Exit',(fx,fy + 7*fh), font, size,(0,255,0),1,1)
+        
+        
+        ## If enabled will stop updating the main openCV windows
+        ## Way to reduce some processing power :)
+        if not quietMode:
+            cv2.imshow('Original',frame)
+            cv2.imshow('ROI', roi)
+
+            if guessGesture == True:
+                plot = np.zeros((512,512,3), np.uint8)
+                plot = myNN.update(plot)
+            
+            cv2.imshow('Gesture Probability',plot)
+            #plot = np.zeros((512,512,3), np.uint8)
+        
+        ############## Keyboard inputs ##################
+        key = cv2.waitKey(5) & 0xff
+        
+        ## Use Esc key to close the program
+        if key == 27:
+            break
+        
+        ## Use b key to toggle between binary threshold or skinmask based filters
+        elif key == ord('b'):
+            binaryMode = not binaryMode
+            bkgrndSubMode = False
+            if binaryMode:
+                print("Binary Threshold filter active")
+            else:
+                print("SkinMask filter active")
+        
+	## Use x key to use and refresh Background SubMask filter
+        elif key == ord('x'):
+            takebkgrndSubMask = True
+            bkgrndSubMode = True
+            print("BkgrndSubMask filter active")
+        
+		
+        ## Use g key to start gesture predictions via CNN
+        elif key == ord('g'):
+            guessGesture = not guessGesture
+            print("Prediction Mode - {}".format(guessGesture))
+        
+        ## This option is not yet complete. So disabled for now
+        ## Use v key to visualize layers
+        #elif key == ord('v'):
+        #    visualize = True
+
+        ## Use i,j,k,l to adjust ROI window
+        elif key == ord('i'):
+            y0 = y0 - 5
+        elif key == ord('k'):
+            y0 = y0 + 5
+        elif key == ord('j'):
+            x0 = x0 - 5
+        elif key == ord('l'):
+            x0 = x0 + 5
+
+        ## Quiet mode to hide gesture window
+        elif key == ord('q'):
+            quietMode = not quietMode
+            print("Quiet Mode - {}".format(quietMode))
+
+        ## Use s key to start/pause/resume taking snapshots
+        ## numOfSamples controls number of snapshots to be taken PER gesture
+        elif key == ord('s'):
+            saveImg = not saveImg
+            
+            if gestname != '':
+                saveImg = True
+            else:
+                print("Enter a gesture group name first, by pressing 'n'")
+                saveImg = False
+        
+        ## Use n key to enter gesture name
+        elif key == ord('n'):
+            gestname = input("Enter the gesture folder name: ")
+            try:
+                os.makedirs(gestname)
+            except OSError as e:
+                # if directory already present
+                if e.errno != 17:
+                    print('Some issue while creating the directory named -' + gestname)
+            
+            path = "./"+gestname+"/"
+        
+        #elif key != 255:
+        #    print key
+
+    #Realse & destroy
+    cap.release()
+    cv2.destroyAllWindows()
+
+if __name__ == "__main__":
+    Main()
