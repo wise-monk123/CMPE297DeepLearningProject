@@ -1,5 +1,5 @@
-[![DOI](https://zenodo.org/badge/89872749.svg)](https://zenodo.org/badge/latestdoi/89872749)
-# CNNGestureRecognizer
+
+# Convolentional Neural Network Hand Emoji Detector 
 Gesture recognition via CNN neural network implemented in Keras + Theano + OpenCV
 
 
@@ -61,11 +61,6 @@ This application provides following functionalities:
 - New Training : Which allows the user to retrain the NN model. User can change the model architecture or add/remove new gestures. This app has inbuilt options to allow the user to create new image samples of user defined gestures if required.
 - Visualization : Which allows the user to see feature maps of different NN layers for a given input gesture image. Interesting to see how NN works and learns things.
 
-
-# Demo 
-Youtube link - https://www.youtube.com/watch?v=CMs5cn65YK8
-
-![](https://j.gifs.com/X6zwYm.gif)
 
 # Gesture Input
 I am using OpenCV for capturing the user's hand gestures. In order to simply things I am doing post processing on the captured images to highlight the contours & edges. Like applying binary threshold, blurring, gray scaling.
@@ -224,23 +219,7 @@ Layer 2 visualization for STOP gesture
 # Conclusion
 So where to go from here? Well I thought of testing out the responsiveness of NN predictions and games are good benchmark. On MAC I dont have any games installed but then this Chrome Browser Dino Jump game came handy. So I bound the 'Punch' gesture with jump action of the Dino character. Basically can work with any other gesture but felt Punch gesture is easy. Stop gesture was another candidate.
 
-Well here is how it turned out :)
-
-Watch full video - https://www.youtube.com/watch?v=lnFPvtCSsLA&t=49s
-
-![](https://j.gifs.com/58pxVx.gif)
 
 
 
-# In case you want to cite my work
-Abhishek Singh,”asingh33/CNNGestureRecognizer: CNNGestureRecognizer (Version 1.3.0)”, Zenodo. http://doi.org/10.5281/zenodo.1064825, Nov. 2017.  
-
-
-
-
-Dont forget to check out my other github project where I used this framework and applied SuperVised machine learning technique to train the Chrome Browser's TRex character :)
-https://github.com/asingh33/SupervisedChromeTrex
-Youtube link - https://youtu.be/ZZgvklkQrss
-
-![](https://j.gifs.com/DRg4mn.gif)
 
