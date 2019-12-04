@@ -28,7 +28,6 @@ I have uploaded few more changes to this repo -
 - Note: I have replaced ori_4015imgs_weights.hdf5 weight file with these two OS specific weight files. 
 ```
 - **_pretrained_weights_MacOS.hdf5_** : This is pretrained weight file on MacOS. Due to its large size (150 MB), its hosted seperately on my google driver link - https://drive.google.com/file/d/1j7K96Dkatz6q6zr5RsQv-t68B3ZOSfh0/view
-- **_pretrained_weights_WinOS.hdf5_** : This is pretrained weight file on Windows. Due to its large size (150 MB), its hosted seperately on my google driver link - https://drive.google.com/file/d/1PA7rJxHYQsW5IvcZAGeoZ-ExYSttFuGs/view
 - **_imgs_** - This is an optional folder of few sample images that one can use to visualize the feature maps at different layers. These are few sample images from imgfolder_b only.
 - **_ori_4015imgs_acc.png_** : This is just a pic of a plot depicting model accuracy Vs validation data accuracy after I trained it.
 - **_ori_4015imgs_loss.png_** : This is just a pic of a plot depicting model loss Vs validation loss after I training.
