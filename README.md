@@ -58,7 +58,7 @@ th3 = cv2.adaptiveThreshold(blur,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_B
 ret, res = cv2.threshold(th3, minValue, 255, cv2.THRESH_BINARY_INV+cv2.THRESH_OTSU)
 ```
 
-![OK gesture in Binary mode](https://github.com/asingh33/CNNGestureRecognizer/blob/master/imgfolder_b/iiiok160.png)
+![OK gesture in Binary mode](https://github.com/wise-monk123/CMPE297DeepLearningProject/blob/master/imgfolder_b/iiiok160.png)
 
 
 **SkindMask Mode processing**
@@ -80,7 +80,7 @@ res = cv2.bitwise_and(roi, roi, mask = mask)
 # color to grayscale
 res = cv2.cvtColor(res, cv2.COLOR_BGR2GRAY)
 ```
-![OK gesture in SkinMask mode](https://github.com/asingh33/CNNGestureRecognizer/blob/master/imgfolder_b/iiok44.png)
+![OK gesture in SkinMask mode](https://github.com/wise-monk123/CMPE297DeepLearningProject/blob/master/imgfolder_b/iiok44.png)
 
 
 # CNN Model used
@@ -190,10 +190,10 @@ activations = get_activations([input_image, 0])[0]
 output_image = activations
 ```
 Layer 4 visualization for PUNCH gesture
-![Layer 4 visualization for PUNCH gesture](https://github.com/asingh33/CNNGestureRecognizer/blob/master/img_4_layer4_MaxPooling2D.png)
+![Layer 4 visualization for PUNCH gesture](https://github.com/wise-monk123/CMPE297DeepLearningProject/blob/master/img_4_layer4_MaxPooling2D.png)
 
 Layer 2 visualization for STOP gesture
-![Layer 2 visualization for STOP gesture](https://github.com/asingh33/CNNGestureRecognizer/blob/master/img_7_layer2_Conv2D.png)
+![Layer 2 visualization for STOP gesture](https://github.com/wise-monk123/CMPE297DeepLearningProject/blob/master/img_7_layer2_Conv2D.png)
 
 
 
