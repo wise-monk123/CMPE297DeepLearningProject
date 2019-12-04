@@ -24,7 +24,7 @@ Theano
 **On Mac**
 ```bash
 eg: With Theano as backend
-$ KERAS_BACKEND=theano python trackgesture.py 
+$ KERAS_BACKEND=theano python track.py 
 ```
 
 We are setting KERAS_BACKEND to change backend to Theano, so in case you have already done it via Keras.json then no need to do that. But if you have Tensorflow set as default then this will be required.
