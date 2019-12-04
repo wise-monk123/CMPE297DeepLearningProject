@@ -1,5 +1,5 @@
 
-# Convolentional Neural Network Hand Emoji Detector 
+# Convolutional Neural Network Hand Emoji Detector 
 Gesture recognition via CNN neural network implemented in Keras + Theano + OpenCV
 
 
