@@ -25,10 +25,7 @@ I have uploaded few more changes to this repo -
 - **gestureCNN.py** : This script file holds all the CNN specific code to create CNN model, load the weight file (if model is pretrained), train the model using image samples present in **./imgfolder_b**, visualize the feature maps at different layers of NN (of pretrained model) for a given input image present in **./imgs** folder.
 - **imgfolder_b** : This folder contains all the 4015 gesture images we took in order to train the model. You need to unzip the file inside.
 
-```diff
-- Note: we have replaced ori_4015imgs_weights.hdf5 weight file with these two OS specific weight files. 
-```
-- **_pretrained_weights_MacOS.hdf5_** : This is pretrained weight file on MacOS. Due to its large size (150 MB), its hosted seperately on my google driver link - https://drive.google.com/file/d/1j7K96Dkatz6q6zr5RsQv-t68B3ZOSfh0/view
+- **_pretrained_weights_MacOS.hdf5_** : This is pretrained weight file on MacOS. Due to its large size (150 MB), its hosted seperately on this google driver link - https://drive.google.com/file/d/1j7K96Dkatz6q6zr5RsQv-t68B3ZOSfh0/view
 - **_imgs_** - This is an optional folder of few sample images that one can use to visualize the feature maps at different layers. These are few sample images from imgfolder_b only.
 - **_ori_4015imgs_acc.png_** : This is just a pic of a plot depicting model accuracy Vs validation data accuracy after I trained it.
 - **_ori_4015imgs_loss.png_** : This is just a pic of a plot depicting model loss Vs validation loss after I training.
