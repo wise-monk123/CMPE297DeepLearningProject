@@ -23,14 +23,14 @@ Theano
 # Usage
 **On Mac**
 ```bash
-eg: With Theano as backend
+With Theano as backend
 $ KERAS_BACKEND=theano python trackhandemoji.py 
 ```
 
 We are setting KERAS_BACKEND to change backend to Theano, so in case you have already done it via Keras.json then no need to do that. But if you have Tensorflow set as default then this will be required.
 
 # Features
-This application comes with CNN model to recognize upto 5 pretrained gestures:
+This application comes with CNN model to recognize up to 5 pretrained gestures:
 - OK
 - PEACE
 - STOP
@@ -58,7 +58,7 @@ th3 = cv2.adaptiveThreshold(blur,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_B
 ret, res = cv2.threshold(th3, minValue, 255, cv2.THRESH_BINARY_INV+cv2.THRESH_OTSU)
 ```
 
-![OK gesture in Binary mode](https://github.com/wise-monk123/CMPE297DeepLearningProject/blob/master/imgfolder_b/iiiok160.png)
+![OK gesture in Binary mode](https://github.com/wise-monk123/CMPE297DeepLearningProject/blob/master/iiiok160.png)
 
 
 **SkindMask Mode processing**
@@ -80,7 +80,7 @@ res = cv2.bitwise_and(roi, roi, mask = mask)
 # color to grayscale
 res = cv2.cvtColor(res, cv2.COLOR_BGR2GRAY)
 ```
-![OK gesture in SkinMask mode](https://github.com/wise-monk123/CMPE297DeepLearningProject/blob/master/imgfolder_b/iiok44.png)
+![OK gesture in SkinMask mode](https://github.com/wise-monk123/CMPE297DeepLearningProject/blob/master/iiok44.png)
 
 
 # CNN Model used
@@ -141,9 +141,7 @@ Total params: 39,348,325.0
 Trainable params: 39,348,325.0
 
 # Training
-In version 1.0 of this project I had used 1204 images only for training. Predictions probability was ok but not satisfying. So in version 2.0 I increased the training image set to 4015 images i.e. 803 image samples per class. Also added an additional class 'Nothing' along with the previous 4 gesture classes.
-
-we have trained the model for 15 epochs.
+we have trained the model for 15 epoch,and used loss & accuracy graphs for measurement.
 
 ![Training Accuracy Vs Validation Accuracy](https://github.com/wise-monk123/CMPE297DeepLearningProject/blob/master/ori_4015imgs_acc.png)
 
@@ -153,7 +151,7 @@ we have trained the model for 15 epochs.
 # Visualization
 CNN is good in detecting edges and thats why its useful for image classificaion kind of problems. In order to understand how the neural net is understanding the different gesture input its possible to visualize the layer feature map contents.
 
-After launching the main script choose option 3 for visualizing different or all layer for a given image (currently it takes images from ./imgs, so change it accordingly)
+After launching the main script, choose option 3 for visualizing different or all layer for a given image (currently it takes images from ./imgs, so change it accordingly)
 ```
 What would you like to do ?
     1- Use pretrained model for gesture recognition & layer visualization
@@ -189,11 +187,20 @@ get_activations = K.function([model.layers[0].input, K.learning_phase()], [layer
 activations = get_activations([input_image, 0])[0]
 output_image = activations
 ```
+
+Layer 1 visualization for OK gesture
+![Layer 1 visualization for OK gesture](https://github.com/wise-monk123/CMPE297DeepLearningProject/blob/master/img_1_layer1_Activation.png)
+
 Layer 4 visualization for PUNCH gesture
 ![Layer 4 visualization for PUNCH gesture](https://github.com/wise-monk123/CMPE297DeepLearningProject/blob/master/img_4_layer4_MaxPooling2D.png)
 
 Layer 2 visualization for STOP gesture
 ![Layer 2 visualization for STOP gesture](https://github.com/wise-monk123/CMPE297DeepLearningProject/blob/master/img_7_layer2_Conv2D.png)
+
+Layer 1 visualization for NOTHING gesture
+![Layer 1 visualization for NOTHING gesture](https://github.com/wise-monk123/CMPE297DeepLearningProject/blob/master/img_0_layer1_Activation.png)
+
+
 
 
 
