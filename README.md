@@ -11,8 +11,8 @@ Tensorflow 1.2.1
 Theano 0.9.0
 
 # Repo contents
-- **trackgesture.py** : The main script launcher. This file contains all the code for UI options and OpenCV code to capture camera contents. This script internally calls interfaces to gestureCNN.py.
-- **gestureCNN.py** : This script file holds all the CNN specific code to create CNN model, load the weight file (if model is pretrained), train the model using image samples present in **./imgfolder_b**, visualize the feature maps at different layers of NN (of pretrained model) for a given input image present in **./imgs** folder.
+- **trackhandemoji.py** : The main script launcher. This file contains all the code for UI options and OpenCV code to capture camera contents. This script internally calls interfaces to gestureCNN.py.
+- **HandEmojiCNN.py** : This script file holds all the CNN specific code to create CNN model, load the weight file (if model is pretrained), train the model using image samples present in **./imgfolder_b**, visualize the feature maps at different layers of NN (of pretrained model) for a given input image present in **./imgs** folder.
 - **imgfolder_b** : This folder contains all the 4015 gesture images we took in order to train the model. You need to unzip the file inside.
 
 - **_pretrained_weights_MacOS.hdf5_** : This is pretrained weight file on MacOS. Due to its large size (150 MB), its hosted seperately on this google driver link - https://drive.google.com/file/d/1j7K96Dkatz6q6zr5RsQv-t68B3ZOSfh0/view
@@ -25,12 +25,6 @@ Theano 0.9.0
 ```bash
 eg: With Theano as backend
 $ KERAS_BACKEND=theano python trackgesture.py 
-```
-**On Windows**
-```bash
-eg: With Tensorflow as backend
-> set "KERAS_BACKEND=tensorflow"
-> python trackgesture.py 
 ```
 
 We are setting KERAS_BACKEND to change backend to Theano, so in case you have already done it via Keras.json then no need to do that. But if you have Tensorflow set as default then this will be required.
