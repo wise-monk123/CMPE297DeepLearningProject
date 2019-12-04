@@ -145,9 +145,9 @@ In version 1.0 of this project I had used 1204 images only for training. Predict
 
 we have trained the model for 15 epochs.
 
-![Training Accuracy Vs Validation Accuracy](https://github.com/asingh33/CNNGestureRecognizer/blob/master/ori_4015imgs_acc.png)
+![Training Accuracy Vs Validation Accuracy](https://github.com/wise-monk123/CMPE297DeepLearningProject/blob/master/ori_4015imgs_acc.png)
 
-![Training Loss Vs Validation Loss](https://github.com/asingh33/CNNGestureRecognizer/blob/master/ori_4015imgs_loss.png)
+![Training Loss Vs Validation Loss](https://github.com/wise-monk123/CMPE297DeepLearningProject/blob/master/ori_4015imgs_loss.png)
 
 
 # Visualization
