@@ -3,12 +3,12 @@
 Gesture recognition via CNN neural network implemented in Keras + Theano + OpenCV
 
 
-Key Requirements:
-Python 3.6.1
-OpenCV 3.4.1
-Keras 2.0.2
-Tensorflow 1.2.1
-Theano 0.9.0
+Technical Requirements:
+Python 
+OpenCV 
+Keras 
+Tensorflow 
+Theano 
 
 # Repo contents
 - **trackhandemoji.py** : The main script launcher. This file contains all the code for UI options and OpenCV code to capture camera contents. This script internally calls interfaces to gestureCNN.py.
