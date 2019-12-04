@@ -80,7 +80,7 @@ res = cv2.bitwise_and(roi, roi, mask = mask)
 # color to grayscale
 res = cv2.cvtColor(res, cv2.COLOR_BGR2GRAY)
 ```
-![OK gesture in SkinMask mode](https://github.com/wise-monk123/CMPE297DeepLearningProject/blob/master/iiok44.png)
+![OK gesture in SkinMask mode](https://github.com/wise-monk123/CMPE297DeepLearningProject/blob/master/imgs/iiok44.png)
 
 
 # CNN Model used
