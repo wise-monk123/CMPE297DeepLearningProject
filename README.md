@@ -58,7 +58,7 @@ th3 = cv2.adaptiveThreshold(blur,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_B
 ret, res = cv2.threshold(th3, minValue, 255, cv2.THRESH_BINARY_INV+cv2.THRESH_OTSU)
 ```
 
-![OK gesture in Binary mode](https://github.com/wise-monk123/CMPE297DeepLearningProject/blob/master/iiiok160.png)
+![OK gesture in Binary mode](https://github.com/wise-monk123/CMPE297DeepLearningProject/blob/master/imgs/iiiok1.png)
 
 
 **SkindMask Mode processing**
