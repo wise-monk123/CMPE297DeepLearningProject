@@ -24,7 +24,7 @@ Theano
 **On Mac**
 ```bash
 eg: With Theano as backend
-$ KERAS_BACKEND=theano python track.py 
+$ KERAS_BACKEND=theano python trackhandemoji.py 
 ```
 
 We are setting KERAS_BACKEND to change backend to Theano, so in case you have already done it via Keras.json then no need to do that. But if you have Tensorflow set as default then this will be required.
@@ -44,9 +44,9 @@ This application provides following functionalities:
 
 
 # Gesture Input
-We are using OpenCV for capturing the user's hand gestures. In order to simply things we are doing post processing on the captured images to highlight the contours & edges. Like applying binary threshold, blurring, gray scaling.
+We are using OpenCV for capturing the user's hand gestures. In order to simply things we are doing post processing on the captured images to highlight the contours & edges, such as applying binary threshold, blurring, gray scaling.
 
-We have provided two modes of capturing:
+There are two modes of capturing:
 - Binary Mode : In here we first convert the image to grayscale, then apply a gaussian blur effect with adaptive threshold filter. This mode is useful when you have an empty background like a wall, whiteboard etc.
 - SkinMask Mode : In this mode, we first convert the input image to HSV and put range on the H,S,V values based on skin color range. Then apply errosion followed by dilation. Then gaussian blur to smoothen out the noises. Using this output as a mask on original input to mask out everything other than skin colored things. Finally I have grayscaled it. This mode is useful when there is good amount of light and you dont have empty background.
 
