@@ -1,11 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Thu Mar  23 01:01:43 2017
 
-@author: abhisheksingh
-"""
-
-#%%
 import cv2
 import numpy as np
 import os
