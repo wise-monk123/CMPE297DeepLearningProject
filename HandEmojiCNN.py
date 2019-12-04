@@ -243,6 +243,7 @@ def guessGesture(model, img):
         # Lets return index 1 for 'Nothing' 
         return 1
 
+#%%
 def initializers():
     imlist = modlistdir(path2)
     
@@ -331,3 +332,126 @@ def trainModel(model):
         model.save_weights("newWeight.hdf5",overwrite=True)
 
     # Save model as well
+    # model.save("newModel.hdf5")
+#%%
+
+def visualizeHis(hist):
+    # visualizing losses and accuracy
+
+    train_loss=hist.history['loss']
+    val_loss=hist.history['val_loss']
+    train_acc=hist.history['acc']
+    val_acc=hist.history['val_acc']
+    xc=range(nb_epoch)
+
+    plt.figure(1,figsize=(7,5))
+    plt.plot(xc,train_loss)
+    plt.plot(xc,val_loss)
+    plt.xlabel('num of Epochs')
+    plt.ylabel('loss')
+    plt.title('train_loss vs val_loss')
+    plt.grid(True)
+    plt.legend(['train','val'])
+    #print plt.style.available # use bmh, classic,ggplot for big pictures
+    #plt.style.use(['classic'])
+
+    plt.figure(2,figsize=(7,5))
+    plt.plot(xc,train_acc)
+    plt.plot(xc,val_acc)
+    plt.xlabel('num of Epochs')
+    plt.ylabel('accuracy')
+    plt.title('train_acc vs val_acc')
+    plt.grid(True)
+    plt.legend(['train','val'],loc=4)
+
+    plt.show()
+
+#%%
+def visualizeLayers(model):
+    imlist = modlistdir('./imgs')
+    if len(imlist) == 0:
+        print('Error: No sample image file found under \'./imgs\' folder.')
+        return
+    else:
+        print('Found these sample image files - {}'.format(imlist))
+
+    img = int(input("Which sample image file to load (enter the INDEX of it, which starts from 0): "))
+    layerIndex = int(input("Enter which layer to visualize. Enter -1 to visualize all layers possible: "))
+    
+    if img <= len(imlist):
+        
+        image = np.array(Image.open('./imgs/' + imlist[img]).convert('L')).flatten()
+        
+        ## Predict
+        print('Guessed Gesture is {}'.format(output[guessGesture(model,image)]))
+        
+        # reshape it
+        image = image.reshape(img_channels, img_rows,img_cols)
+        
+        # float32
+        image = image.astype('float32')
+        
+        # normalize it
+        image = image / 255
+        
+        # reshape for NN
+        input_image = image.reshape(1, img_channels, img_rows, img_cols)
+    else:
+        print('Wrong file index entered !!')
+        return
+    
+    
+    
+        
+    # visualizing intermediate layers
+    #output_layer = model.layers[layerIndex].output
+    #output_fn = theano.function([model.layers[0].input], output_layer)
+    #output_image = output_fn(input_image)
+    
+    if layerIndex >= 1:
+        visualizeLayer(model,img,input_image, layerIndex)
+    else:
+        tlayers = len(model.layers[:])
+        print("Total layers - {}".format(tlayers))
+        for i in range(1,tlayers):
+             visualizeLayer(model,img, input_image,i)
+
+#%%
+def visualizeLayer(model, img, input_image, layerIndex):
+
+    layer = model.layers[layerIndex]
+    
+    get_activations = K.function([model.layers[0].input, K.learning_phase()], [layer.output,])
+    activations = get_activations([input_image, 0])[0]
+    output_image = activations
+    
+    
+    ## If 4 dimensional then take the last dimension value as it would be no of filters
+    if output_image.ndim == 4:
+        # Rearrange dimension so we can plot the result
+        #o1 = np.rollaxis(output_image, 3, 1)
+        #output_image = np.rollaxis(o1, 3, 1)
+        output_image = np.moveaxis(output_image, 1, 3)
+        
+        print("Dumping filter data of layer{} - {}".format(layerIndex,layer.__class__.__name__))
+        filters = len(output_image[0,0,0,:])
+        
+        fig=plt.figure(figsize=(8,8))
+        # This loop will plot the 32 filter data for the input image
+        for i in range(filters):
+            ax = fig.add_subplot(6, 6, i+1)
+            #ax.imshow(output_image[img,:,:,i],interpolation='none' ) #to see the first filter
+            ax.imshow(output_image[0,:,:,i],'gray')
+            #ax.set_title("Feature map of layer#{} \ncalled '{}' \nof type {} ".format(layerIndex,
+            #                layer.name,layer.__class__.__name__))
+            plt.xticks(np.array([]))
+            plt.yticks(np.array([]))
+        plt.tight_layout()
+        #plt.show()
+        savedfilename = "img_" + str(img) + "_layer" + str(layerIndex)+"_"+layer.__class__.__name__+".png"
+        fig.savefig(savedfilename)
+        print("Create file - {}".format(savedfilename))
+        #plt.close(fig)
+    else:
+        print("Can't dump data of this layer{}- {}".format(layerIndex, layer.__class__.__name__))
+
