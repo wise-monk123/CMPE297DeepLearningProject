@@ -1,27 +1,29 @@
 
 # Convolutional Neural Network Hand Emoji Detector 
-Gesture recognition via CNN neural network implemented in Keras + Theano + OpenCV
+Hand emoji recognition by using CNN neural network implemented with Keras, Theano, and OpenCV
 
 
-Technical Requirements:
+# Technical Requirements:
 Python 
 OpenCV 
 Keras 
 Tensorflow 
 Theano 
+Conda 
 
-# Repo contents
+# File contents
 - **trackhandemoji.py** : The main script launcher. This file contains all the code for UI options and OpenCV code to capture camera contents. This script internally calls interfaces to gestureCNN.py.
 - **HandEmojiCNN.py** : This script file holds all the CNN specific code to create CNN model, load the weight file (if model is pretrained), train the model using image samples present in **./imgfolder_b**, visualize the feature maps at different layers of NN (of pretrained model) for a given input image present in **./imgs** folder.
-- **imgfolder_b** : This folder contains all the 4015 gesture images we took in order to train the model. You need to unzip the file inside.
+- **imgfolder_b** : This folder contains all the 4015 gesture images to train the model. You need to unzip the file inside.
+- **_pretrained_weights_MacOS.hdf5_** : This is pretrained weight file on MacOS. Due to its large size (150 MB), its hosted seperately on this google driver link - https://drive.google.com/file/d/1j7K96Dkatz6q6zr5RsQv-t68B3ZOSfh0/view. You need to download this and save it to the application folder before running the app. 
+- **_imgs_** - This is an optional folder of few sample images that one can use to visualize the feature maps at different layers. We have multiple layer images pasted below.
 
-- **_pretrained_weights_MacOS.hdf5_** : This is pretrained weight file on MacOS. Due to its large size (150 MB), its hosted seperately on this google driver link - https://drive.google.com/file/d/1j7K96Dkatz6q6zr5RsQv-t68B3ZOSfh0/view
-- **_imgs_** - This is an optional folder of few sample images that one can use to visualize the feature maps at different layers. These are few sample images from imgfolder_b only.
-- **_ori_4015imgs_acc.png_** : This is just a pic of a plot depicting model accuracy Vs validation data accuracy after I trained it.
-- **_ori_4015imgs_loss.png_** : This is just a pic of a plot depicting model loss Vs validation loss after I training.
+# Colab links for trackhandemoji.ipynb and HandEmojiCNN.ipynb : (SJSU accounts have view access to below links)
+https://colab.research.google.com/drive/1JbGYrTO7a2emqAI-ewbdSXQNT6q5uOtH  
+https://colab.research.google.com/drive/1_pPYctqgU4mS8Y33uYAuzh9jvhYrl1Fe
 
-# Usage
-**On Mac**
+# Implementation from local terminal 
+**On Mac** (We only tested this application on multiple mac laptops.)
 ```bash
 With Theano as backend
 $ KERAS_BACKEND=theano python trackhandemoji.py 
@@ -205,7 +207,8 @@ Layer 2 visualization for STOP gesture
 Layer 1 visualization for NOTHING gesture
 ![Layer 1 visualization for NOTHING gesture](https://github.com/wise-monk123/CMPE297DeepLearningProject/blob/master/img_0_layer1_Activation.png)
 
-
+# TPU, CPU, GPU Comparision
+![TPU](https://github.com/wise-monk123/CMPE297DeepLearningProject/blob/master/imgs/CPU_TPU_GPU)
 
 
 
