@@ -17,7 +17,7 @@ Hand emoji recognition by using convolutional neural network implemented with Ke
 - **HandEmojiCNN.py** : This file holds all the CNN specific code to create CNN model, load the weight file (if model is pretrained), train the model using image samples present in **./imgfolder_b**, visualize the feature maps at different layers of NN (of pretrained model) for a given input image present in **./imgs** folder.
 - **imgfolder_b** : This folder contains all the 4015 gesture images to train the model. You need to unzip the file inside.
 - **_pretrained_weights_MacOS.hdf5_** : This is pretrained weight file on MacOS. Due to its large size (150 MB), its hosted seperately on this google driver link - https://drive.google.com/file/d/1j7K96Dkatz6q6zr5RsQv-t68B3ZOSfh0/view. You need to download this and save it to the application folder before running the app. 
-- **_imgs_** - This is an optional folder of some sample images to visualize feature layer maps at different layers. We have multiple layer images pasted below.
+- **_imgs_** - This folder has some sample images to visualize feature layer maps at different layers along with App Demo images for ReadMe display. We have multiple layer images pasted below.
 
 # Colab links 
 for trackhandemoji.ipynb and HandEmojiCNN.ipynb : (SJSU accounts have view access to below links)
