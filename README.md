@@ -89,7 +89,7 @@ There are two modes of image capturing:
 - Binary Mode : we first convert the image to grayscale, then apply a gaussian blur effect with adaptive threshold filter. This mode is useful when you have an empty background like a wall, whiteboard etc.
 - SkinMask Mode : we first convert the input image to HSV and put range on the H,S,V values based on skin color range. Then apply errosion followed by dilation. Then gaussian blur to smoothen out the noises. Using this output as a mask on original input to mask out everything other than skin colored things. Finally I have grayscaled it. This mode is useful when there is good amount of light and you dont have empty background.
 
-**Binary Mode processing**
+**Binary Mode**
 ```python
 gray = cv2.cvtColor(roi, cv2.COLOR_BGR2GRAY)
 blur = cv2.GaussianBlur(gray,(5,5),2)   
@@ -100,7 +100,7 @@ ret, res = cv2.threshold(th3, minValue, 255, cv2.THRESH_BINARY_INV+cv2.THRESH_OT
 ![OK gesture in Binary mode](https://github.com/wise-monk123/CMPE297DeepLearningProject/blob/master/imgs/iiiok1.png)
 
 
-**SkindMask Mode processing**
+**SkindMask Mode**
 ```python
 hsv = cv2.cvtColor(roi, cv2.COLOR_BGR2HSV)
     
@@ -122,7 +122,7 @@ res = cv2.cvtColor(res, cv2.COLOR_BGR2GRAY)
 ![OK gesture in SkinMask mode](https://github.com/wise-monk123/CMPE297DeepLearningProject/blob/master/imgs/iiok44.png)
 
 
-# CNN Model
+# CNN Model Architecture
 
 ```python
 model = Sequential()
