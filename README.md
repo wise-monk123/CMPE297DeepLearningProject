@@ -2,6 +2,14 @@
 # Convolutional Neural Network Hand Emoji Detector 
 Hand emoji recognition by using convolutional neural network implemented with Keras, Theano, and OpenCV
 
+# Team Members 
+
+We are a five-member team: 
+- Ma Jia
+- Yuanzhe Li
+- Ying Liu
+- Yuhua He
+- Samuel Yang
 
 # Technical Requirements:
 - Python 3
