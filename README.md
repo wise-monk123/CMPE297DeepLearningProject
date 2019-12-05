@@ -18,7 +18,8 @@ Conda
 - **_pretrained_weights_MacOS.hdf5_** : This is pretrained weight file on MacOS. Due to its large size (150 MB), its hosted seperately on this google driver link - https://drive.google.com/file/d/1j7K96Dkatz6q6zr5RsQv-t68B3ZOSfh0/view. You need to download this and save it to the application folder before running the app. 
 - **_imgs_** - This is an optional folder of few sample images that one can use to visualize the feature maps at different layers. We have multiple layer images pasted below.
 
-# Colab links for trackhandemoji.ipynb and HandEmojiCNN.ipynb : (SJSU accounts have view access to below links)
+# Colab links 
+for trackhandemoji.ipynb and HandEmojiCNN.ipynb : (SJSU accounts have view access to below links)
 https://colab.research.google.com/drive/1JbGYrTO7a2emqAI-ewbdSXQNT6q5uOtH  
 https://colab.research.google.com/drive/1_pPYctqgU4mS8Y33uYAuzh9jvhYrl1Fe
 
