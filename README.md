@@ -59,7 +59,7 @@ We are setting KERAS_BACKEND to change backend to Theano.
 
 **prediction result**
 
-![Option1 opens up 3 windows](https://github.com/wise-monk123/CMPE297DeepLearningProject/blob/master/imgs/demo.png)
+![Option1 opens up 3 windows](https://github.com/wise-monk123/CMPE297DeepLearningProject/blob/master/imgs/demo5.png)
 
 
 # Features
@@ -77,7 +77,7 @@ This application provides following functionalities:
 
 
 # Hand Emoji Input
-We are using OpenCV for capturing user's hand gestures. In order to simply the process, we are doing post processing on the captured images to highlight the contours & edges, such as applying binary threshold, blurring, gray scaling.
+We are using OpenCV for capturing user's hand gestures. In order to simplify the prediction, we are doing post processing on the captured images to highlight the contours & edges, such as applying binary threshold, blurring, gray scaling.
 
 There are two modes of image capturing:
 - Binary Mode : we first convert the image to grayscale, then apply a gaussian blur effect with adaptive threshold filter. This mode is useful when you have an empty background like a wall, whiteboard etc.
@@ -116,7 +116,7 @@ res = cv2.cvtColor(res, cv2.COLOR_BGR2GRAY)
 ![OK gesture in SkinMask mode](https://github.com/wise-monk123/CMPE297DeepLearningProject/blob/master/imgs/iiok44.png)
 
 
-# CNN Model used
+# CNN Model
 
 ```python
 model = Sequential()
