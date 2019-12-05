@@ -10,7 +10,7 @@ Hand emoji recognition by using convolutional neural network implemented with Ke
 - Tensorflow 
 - Theano 
 - Matplotlib
-Versions are specified in the requriements.txt file in the repository.
+- Package versions are specified in the requriements.txt file in the repository.
 
 # Repository file contents
 - **trackhandemoji.py** : This is our main function. This file contains all the code for user interface options and OpenCV code to capture camera contents. This file internally calls interfaces to HandEmojiCNN.py.
