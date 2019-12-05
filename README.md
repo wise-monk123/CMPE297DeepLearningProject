@@ -30,7 +30,7 @@ We are a five-member team:
 # Colab links 
 for trackhandemoji.ipynb and HandEmojiCNN.ipynb : (SJSU accounts have view access to below links) 
 https://colab.research.google.com/drive/1_pPYctqgU4mS8Y33uYAuzh9jvhYrl1Fe (HandEmojiCNN.ipynb)
-https://colab.research.google.com/drive/1LPhDJh677lzewW7J-QKcf91OOabXyWSf (Trackhandemoji.ipynb) This colab shows visulization of various image layers)
+https://colab.research.google.com/drive/1MjzqiI5bgT2Aw67Ety7d6L6TQMw3Ee1f (Trackhandemoji.ipynb) This colab shows visulization of various image layers, and tensor board)
 
 # Implementation from local terminal 
 **On Mac only** (We tested this application on multiple mac laptops.)
@@ -241,8 +241,8 @@ Layer 1 visualization for NOTHING gesture
 ![TPU](https://github.com/wise-monk123/CMPE297DeepLearningProject/blob/master/imgs/CPU_TPU_GPU)
 
 
-
-
+# Tensor Board
+![Tensorboard](https://github.com/wise-monk123/CMPE297DeepLearningProject/blob/master/imgs/Tensorboard.png)
 
 
 
