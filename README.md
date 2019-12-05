@@ -21,8 +21,8 @@ Hand emoji recognition by using convolutional neural network implemented with Ke
 
 # Colab links 
 for trackhandemoji.ipynb and HandEmojiCNN.ipynb : (SJSU accounts have view access to below links) 
-https://colab.research.google.com/drive/1_pPYctqgU4mS8Y33uYAuzh9jvhYrl1Fe
-https://colab.research.google.com/drive/1LPhDJh677lzewW7J-QKcf91OOabXyWSf
+https://colab.research.google.com/drive/1_pPYctqgU4mS8Y33uYAuzh9jvhYrl1Fe (HandEmojiCNN.ipynb)
+https://colab.research.google.com/drive/1LPhDJh677lzewW7J-QKcf91OOabXyWSf (Trackhandemoji.ipynb)
 
 # Implementation from local terminal 
 **On Mac** (We only tested this application on multiple mac laptops.)
