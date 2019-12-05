@@ -31,7 +31,7 @@ We are setting KERAS_BACKEND to change backend to Theano, so in case you have al
 
 # App Demo
 
-![Option1](https://github.com/wise-monk123/CMPE297DeepLearningProject/blob/master/imgs/Screen Shot 2019-12-04 at 3.59.18 PM.png)
+![OK gesture in Binary mode](https://github.com/wise-monk123/CMPE297DeepLearningProject/blob/master/imgs/demo.png)
 
 
 # Features
