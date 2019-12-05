@@ -36,10 +36,16 @@ We are setting KERAS_BACKEND to change backend to Theano.
 
 **local terminal**
 ![local terminal](https://github.com/wise-monk123/CMPE297DeepLearningProject/blob/master/imgs/Demo1.png)
+
+
 **camera capture**
 ![camera capture](https://github.com/wise-monk123/CMPE297DeepLearningProject/blob/master/imgs/Demo2.png)
+
+
 **image processing**
 ![image processing](https://github.com/wise-monk123/CMPE297DeepLearningProject/blob/master/imgs/Demo3.png)
+
+
 **prediction result**
 ![Option1 opens up 3 windows](https://github.com/wise-monk123/CMPE297DeepLearningProject/blob/master/imgs/demo.png)
 
