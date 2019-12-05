@@ -1,22 +1,23 @@
 
 # Convolutional Neural Network Hand Emoji Detector 
-Hand emoji recognition by using CNN neural network implemented with Keras, Theano, and OpenCV
+Hand emoji recognition by using convolutional neural network implemented with Keras, Theano, and OpenCV
 
 
 # Technical Requirements:
-Python 
-OpenCV 
-Keras 
-Tensorflow 
-Theano 
-Conda 
+- Python 3
+- OpenCV 
+- Keras 
+- Tensorflow 
+- Theano 
+- Matplotlib
+Versions are specified in the requriements.txt file in the repository.
 
-# File contents
-- **trackhandemoji.py** : The main script launcher. This file contains all the code for UI options and OpenCV code to capture camera contents. This script internally calls interfaces to gestureCNN.py.
-- **HandEmojiCNN.py** : This script file holds all the CNN specific code to create CNN model, load the weight file (if model is pretrained), train the model using image samples present in **./imgfolder_b**, visualize the feature maps at different layers of NN (of pretrained model) for a given input image present in **./imgs** folder.
+# Repository file contents
+- **trackhandemoji.py** : This is our main function. This file contains all the code for user interface options and OpenCV code to capture camera contents. This file internally calls interfaces to HandEmojiCNN.py.
+- **HandEmojiCNN.py** : This file holds all the CNN specific code to create CNN model, load the weight file (if model is pretrained), train the model using image samples present in **./imgfolder_b**, visualize the feature maps at different layers of NN (of pretrained model) for a given input image present in **./imgs** folder.
 - **imgfolder_b** : This folder contains all the 4015 gesture images to train the model. You need to unzip the file inside.
 - **_pretrained_weights_MacOS.hdf5_** : This is pretrained weight file on MacOS. Due to its large size (150 MB), its hosted seperately on this google driver link - https://drive.google.com/file/d/1j7K96Dkatz6q6zr5RsQv-t68B3ZOSfh0/view. You need to download this and save it to the application folder before running the app. 
-- **_imgs_** - This is an optional folder of few sample images that one can use to visualize the feature maps at different layers. We have multiple layer images pasted below.
+- **_imgs_** - This is an optional folder of some sample images to visualize feature layer maps at different layers. We have multiple layer images pasted below.
 
 # Colab links 
 for trackhandemoji.ipynb and HandEmojiCNN.ipynb : (SJSU accounts have view access to below links)
@@ -27,14 +28,13 @@ https://colab.research.google.com/drive/1_pPYctqgU4mS8Y33uYAuzh9jvhYrl1Fe
 **On Mac** (We only tested this application on multiple mac laptops.)
 ```bash
 With Theano as backend
-$ KERAS_BACKEND=theano python trackhandemoji.py 
+$ KERAS_BACKEND=theano pythonw trackhandemoji.py 
 ```
-
-We are setting KERAS_BACKEND to change backend to Theano, so in case you have already done it via Keras.json then no need to do that. But if you have Tensorflow set as default then this will be required.
+We are setting KERAS_BACKEND to change backend to Theano.
 
 # App Demo
 
-![OK gesture in Binary mode](https://github.com/wise-monk123/CMPE297DeepLearningProject/blob/master/imgs/demo.png)
+![Option1 opens up 3 windows](https://github.com/wise-monk123/CMPE297DeepLearningProject/blob/master/imgs/demo.png)
 
 
 # Features
@@ -46,17 +46,17 @@ This application comes with CNN model to recognize up to 5 pretrained gestures:
 - NOTHING (ie when none of the above gestures are input)
 
 This application provides following functionalities:
-- Prediction : Which allows the app to guess the user's gesture against pretrained gestures. App can dump the prediction data to the console terminal or to a json file directly which can be used to plot real time prediction bar chart
-- New Training : Which allows the user to retrain the NN model. User can change the model architecture or add/remove new gestures. This app has inbuilt options to allow the user to create new image samples of user defined gestures if required.
-- Visualization : Which allows the user to see feature maps of different NN layers for a given input gesture image. Interesting to see how NN works and learns things.
+- Prediction : this allows the app to guess the user's gesture against pretrained gestures. App can dump the prediction data to the console terminal or to a json file directly which can be used to plot real time prediction bar chart
+- Training : this allows user to retrain the CNN model. User can change the model architecture or add/remove new gestures. This app has inbuilt options to allow users to create new image samples of user defined gestures if required.
+- Visualization : this allows the user to see feature maps of different neural network layers for a given input gesture image. As illustrated in the layer images section below, each image will be saved with neural network layer name, such as activation, max pooling etc.  
 
 
 # Hand Emoji Input
-We are using OpenCV for capturing the user's hand gestures. In order to simply things we are doing post processing on the captured images to highlight the contours & edges, such as applying binary threshold, blurring, gray scaling.
+We are using OpenCV for capturing user's hand gestures. In order to simply the process, we are doing post processing on the captured images to highlight the contours & edges, such as applying binary threshold, blurring, gray scaling.
 
-There are two modes of capturing:
-- Binary Mode : In here we first convert the image to grayscale, then apply a gaussian blur effect with adaptive threshold filter. This mode is useful when you have an empty background like a wall, whiteboard etc.
-- SkinMask Mode : In this mode, we first convert the input image to HSV and put range on the H,S,V values based on skin color range. Then apply errosion followed by dilation. Then gaussian blur to smoothen out the noises. Using this output as a mask on original input to mask out everything other than skin colored things. Finally I have grayscaled it. This mode is useful when there is good amount of light and you dont have empty background.
+There are two modes of image capturing:
+- Binary Mode : we first convert the image to grayscale, then apply a gaussian blur effect with adaptive threshold filter. This mode is useful when you have an empty background like a wall, whiteboard etc.
+- SkinMask Mode : we first convert the input image to HSV and put range on the H,S,V values based on skin color range. Then apply errosion followed by dilation. Then gaussian blur to smoothen out the noises. Using this output as a mask on original input to mask out everything other than skin colored things. Finally I have grayscaled it. This mode is useful when there is good amount of light and you dont have empty background.
 
 **Binary Mode processing**
 ```python
@@ -92,7 +92,6 @@ res = cv2.cvtColor(res, cv2.COLOR_BGR2GRAY)
 
 
 # CNN Model used
-The CNN we have used for this project is pretty common CNN model which can be found across various tutorials on CNN. Mostly we have seen it being used for Digit/Number classfication based on MNIST database.
 
 ```python
 model = Sequential()
@@ -149,7 +148,7 @@ Total params: 39,348,325.0
 Trainable params: 39,348,325.0
 
 # Training
-we have trained the model for 15 epoch,and used loss & accuracy graphs for measurement.
+We have trained the model for 15 epochs,and used loss & accuracy graphs for measurement. The results can be viewd in Colab links as well.
 
 ![Training Accuracy Vs Validation Accuracy](https://github.com/wise-monk123/CMPE297DeepLearningProject/blob/master/ori_4015imgs_acc.png)
 
@@ -157,7 +156,6 @@ we have trained the model for 15 epoch,and used loss & accuracy graphs for measu
 
 
 # Visualization
-CNN is good in detecting edges and thats why its useful for image classificaion kind of problems. In order to understand how the neural net is understanding the different gesture input its possible to visualize the layer feature map contents.
 
 After launching the main script, choose option 3 for visualizing different or all layer for a given image (currently it takes images from ./imgs, so change it accordingly)
 ```
