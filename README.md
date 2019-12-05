@@ -29,6 +29,11 @@ $ KERAS_BACKEND=theano python trackhandemoji.py
 
 We are setting KERAS_BACKEND to change backend to Theano, so in case you have already done it via Keras.json then no need to do that. But if you have Tensorflow set as default then this will be required.
 
+# App Demo
+
+![Option1](https://github.com/wise-monk123/CMPE297DeepLearningProject/blob/master/imgs/Screen Shot 2019-12-04 at 3.59.18 PM.png)
+
+
 # Features
 This application comes with CNN model to recognize up to 5 pretrained gestures:
 - OK
