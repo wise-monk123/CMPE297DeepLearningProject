@@ -51,7 +51,7 @@ This application provides following functionalities:
 - Visualization : Which allows the user to see feature maps of different NN layers for a given input gesture image. Interesting to see how NN works and learns things.
 
 
-# Gesture Input
+# Hand Emoji Input
 We are using OpenCV for capturing the user's hand gestures. In order to simply things we are doing post processing on the captured images to highlight the contours & edges, such as applying binary threshold, blurring, gray scaling.
 
 There are two modes of capturing:
