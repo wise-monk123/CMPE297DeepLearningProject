@@ -23,22 +23,28 @@ We are a five-member team:
 # Repository file contents
 - **trackhandemoji.py** : This is our main function. This file contains all the code for user interface options and OpenCV code to capture camera contents. This file internally calls interfaces to HandEmojiCNN.py.
 - **HandEmojiCNN.py** : This file holds all the CNN specific code to create CNN model, load the weight file (if model is pretrained), train the model using image samples present in **./imgfolder_b**, visualize the feature maps at different layers of NN (of pretrained model) for a given input image present in **./imgs** folder.
-- **imgfolder_b** : This folder contains all the 4015 gesture images to train the model. You need to unzip the file inside.
+- **imgfolder_b** : This folder contains all the 4015 hand emoji images to train the model. You need to unzip the file inside.
 - **_pretrained_weights_MacOS.hdf5_** : This is pretrained weight file on MacOS. Due to its large size (150 MB), its hosted seperately on this google driver link - https://drive.google.com/file/d/1j7K96Dkatz6q6zr5RsQv-t68B3ZOSfh0/view. You need to download this and save it to the application folder before running the app. 
 - **_imgs_** - This folder has some sample images to visualize feature layer maps at different layers along with App Demo images for ReadMe display. We have multiple layer images pasted below.
 
 # Colab links 
 for trackhandemoji.ipynb and HandEmojiCNN.ipynb : (SJSU accounts have view access to below links) 
 https://colab.research.google.com/drive/1_pPYctqgU4mS8Y33uYAuzh9jvhYrl1Fe (HandEmojiCNN.ipynb)
-https://colab.research.google.com/drive/1LPhDJh677lzewW7J-QKcf91OOabXyWSf (Trackhandemoji.ipynb)
+https://colab.research.google.com/drive/1LPhDJh677lzewW7J-QKcf91OOabXyWSf (Trackhandemoji.ipynb) This colab shows visulization of various image layers)
 
 # Implementation from local terminal 
-**On Mac** (We only tested this application on multiple mac laptops.)
+**On Mac only** (We tested this application on multiple mac laptops.)
 ```bash
 With Theano as backend
 $ KERAS_BACKEND=theano pythonw trackhandemoji.py 
 ```
 We are setting KERAS_BACKEND to change backend to Theano.
+
+# Input and Output
+
+- We use the 4015 images to train the model. 
+- Users could use pre-trained weights without training the model. In this case, input is the hand emoji images captured from the computer camera. 
+- Output: application will predict the hand emoji's names. We have 5 names: OK, Peace, Stop, Punch, Nothing.
 
 # App Demo
 
