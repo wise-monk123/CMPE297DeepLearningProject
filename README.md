@@ -19,6 +19,7 @@ We are a five-member team:
 - Theano 
 - Matplotlib
 - tfx.component: SchemaGen, Trainer, Evaluator, Transform, ModelValidator, Pusher, Bulkinferrer
+- Apache Airflow
 - Package versions are specified in the requriements.txt file in the repository.
 
 # Repository file contents
@@ -247,4 +248,7 @@ Layer 1 visualization for NOTHING gesture
 
 
 # Tensorflow Extended (TFX)
-to be added
+
+Open the browser to 127.0.0.1:8080. Here is the Graph view: 
+
+![Tensorboard](https://github.com/wise-monk123/CMPE297DeepLearningProject/blob/master/imgs/graphview.png)
