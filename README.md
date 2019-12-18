@@ -246,5 +246,5 @@ Layer 1 visualization for NOTHING gesture
 ![Tensorboard](https://github.com/wise-monk123/CMPE297DeepLearningProject/blob/master/imgs/Tensorboard.png)
 
 
-# Tensorflow Extended 
+# Tensorflow Extended (TFX)
 to be added
