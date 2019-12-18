@@ -1,5 +1,5 @@
 
-# Convolutional Neural Network Hand Emoji Detector 
+# Convolutional Neural Network Hand Emoji Detector with Tensorflow Extended (TFX) 
 Hand emoji recognition by using convolutional neural network implemented with Keras, Theano, and OpenCV
 
 # Team Members 
@@ -18,6 +18,7 @@ We are a five-member team:
 - Tensorflow 
 - Theano 
 - Matplotlib
+- tfx.component
 - Package versions are specified in the requriements.txt file in the repository.
 
 # Repository file contents
@@ -245,4 +246,5 @@ Layer 1 visualization for NOTHING gesture
 ![Tensorboard](https://github.com/wise-monk123/CMPE297DeepLearningProject/blob/master/imgs/Tensorboard.png)
 
 
-
+# Tensorflow Extended 
+to be added
