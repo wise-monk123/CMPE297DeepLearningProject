@@ -18,7 +18,7 @@ We are a five-member team:
 - Tensorflow 
 - Theano 
 - Matplotlib
-- tfx.component
+- tfx.component: SchemaGen, Trainer, Evaluator, Transform, ModelValidator, Pusher, Bulkinferrer
 - Package versions are specified in the requriements.txt file in the repository.
 
 # Repository file contents
