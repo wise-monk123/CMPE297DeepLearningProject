@@ -23,6 +23,9 @@ We are a five-member team:
 - Package versions are specified in the requriements.txt file in the repository.
 
 # Repository file contents
+- **handemoji_utils.py** : This code file uses TFX and process the data, generate features, and build serving and other infrastructure for executing TFX.
+- **handeomoji_pipeline_beam_end2ent_test.py** : This code file is for testing the TFX model. 
+- **handemoji_pipeline_beam.py** : This code file converted our main function that runs traditional deep learning models into Tensorflow Extended (TFX) 
 - **trackhandemoji.py** : This is our main function. This file contains all the code for user interface options and OpenCV code to capture camera contents. This file internally calls interfaces to HandEmojiCNN.py.
 - **HandEmojiCNN.py** : This file holds all the CNN specific code to create CNN model, load the weight file (if model is pretrained), train the model using image samples present in **./imgfolder_b**, visualize the feature maps at different layers of NN (of pretrained model) for a given input image present in **./imgs** folder.
 - **imgfolder_b** : This folder contains all the 4015 hand emoji images to train the model. You need to unzip the file inside.
