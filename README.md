@@ -249,6 +249,12 @@ Layer 1 visualization for NOTHING gesture
 
 # Tensorflow Extended (TFX)
 
-Open the browser to 127.0.0.1:8080. Here is the Graph view: 
+Airflow Dags
+<img width="1437" alt="image" src="https://user-images.githubusercontent.com/26746908/71058194-dcc1b900-2113-11ea-8411-1a479264cf5d.png">
 
-![Tensorboard](https://github.com/wise-monk123/CMPE297DeepLearningProject/blob/master/imgs/graphview.png)
+Data Generator
+<img width="1437" alt="image" src="https://user-images.githubusercontent.com/26746908/71059301-66bf5100-2117-11ea-84bc-3d5182952611.png">
+
+Graph
+<img width="1439" alt="image" src="https://user-images.githubusercontent.com/26746908/71059389-a423de80-2117-11ea-96c8-4bfe8cdb0e78.png">
+
